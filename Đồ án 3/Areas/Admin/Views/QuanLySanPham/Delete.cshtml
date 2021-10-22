@@ -1,0 +1,73 @@
+﻿@model Đồ_án_3.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+<h2 style="padding-left:5%;font-size:30px;color:red">Xóa sản phẩm</h2>
+
+<h3 style="padding-left:5%">Bạn có chắc chắn muốn xóa sản phẩm ?</h3>
+<hr />
+<div style="padding:10px 5%">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name):@Html.DisplayFor(model => model.Name)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avatar): @Html.DisplayFor(model => model.Avatar)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId): @Html.DisplayFor(model => model.CategoryId)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDes): @Html.DisplayFor(model => model.ShortDes)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullDes): @Html.DisplayFor(model => model.FullDes)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceDiscount):@Html.DisplayFor(model => model.PriceDiscount)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeId):   @Html.DisplayFor(model => model.TypeId)
+        </dt>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="padding-top:10px">
+            <input type="submit" value="Xóa" class="btn btn-default" />
+            <div style="float:left">
+                <p style="float:left;width:50px;padding:0 8px 10px 10px;background:red;text-align:center;height:12px">
+                    <a style="text-decoration:none;color:white" href="@Url.Action("HomeProduct","QuanLySanPham")">Trở về</a>
+                </p>
+            </div>
+        </div>
+    }
+</div>

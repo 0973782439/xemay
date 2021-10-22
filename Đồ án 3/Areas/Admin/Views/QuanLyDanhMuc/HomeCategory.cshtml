@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Đồ_án_3.Models.Category>
+
+@{
+    ViewBag.Title = "HomeCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+<h2 style="color:red;text-align:center;font-size:30px">Quản lý Danh mục sản phẩm</h2>
+
+<p style="float:left;width:80px;padding:0 0 10px 10px;background:red;text-align:center">
+    <a style="text-decoration:none;color:white" href="@Url.Action("CreateCate","QuanLyDanhMuc")">Thêm</a>
+</p>
+
+@using (Html.BeginForm("HomeCategory", "QuanLyDanhMuc", FormMethod.Get))
+{
+    <p style="float:right;width:20%;padding-bottom:10px ">
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="search" />
+    </p>
+}
+<div class="item-true">
+
+    <table class="table" border="1">
+        <tr>
+            <td class="one">
+                @Html.DisplayNameFor(model => model.Id)
+            </td>
+            <td class="one">
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+           
+            <td class="one">
+                @Html.DisplayNameFor(model => model.Slug)
+            </td>
+
+            <td class="one">
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </td>
+            <td class="one">
+                @Html.DisplayNameFor(model => model.CreateOnUtc)
+            </td>
+            <td class="one">
+                @Html.DisplayNameFor(model => model.UpdateOnUtc)
+            </td>
+            <td class="one">
+                @Html.DisplayNameFor(model => model.Deleted)
+            </td>
+            <td class="one">
+                Sửa|CTSP|Xóa
+            </td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Slug)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateOnUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateOnUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            <a style="text-decoration:none;color:white;background:blue" href="@Url.Action("EditCate","QuanLyDanhMuc",new { id = item.Id })">Sửa</a>
+            <a style="text-decoration:none;color:black;background:yellow" href="@Url.Action("DetailsCate","QuanLyDanhMuc",new { id = item.Id })">CTSP</a>
+            <a style="text-decoration:none;color:black;background:red" href="@Url.Action("DeleteCate","QuanLyDanhMuc",new { id = item.Id })">Xóa</a>
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>

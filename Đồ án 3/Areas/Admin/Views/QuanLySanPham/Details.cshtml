@@ -1,0 +1,59 @@
+﻿@model Đồ_án_3.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+<h2 style="padding-left:5%;font-size:30px;color:red">Chi tiết sản phẩm</h2>
+<hr />
+<div style="padding:10px 5%">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name):@Html.DisplayFor(model => model.Name)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avatar): @Html.DisplayFor(model => model.Avatar)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId): @Html.DisplayFor(model => model.CategoryId)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDes): @Html.DisplayFor(model => model.ShortDes)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullDes): @Html.DisplayFor(model => model.FullDes)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceDiscount):@Html.DisplayFor(model => model.PriceDiscount)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeId):   @Html.DisplayFor(model => model.TypeId)
+        </dt>
+
+    </dl>
+</div>
+<p style="padding:10px 5%">
+    @Html.ActionLink("Trở về", "HomeProduct") |
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.Id })
+</p>

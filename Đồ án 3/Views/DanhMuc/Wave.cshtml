@@ -1,0 +1,141 @@
+﻿@*@model List<Đồ_án_3.Models.Product>*@
+@model Đồ_án_3.Models.Category_Product
+
+@{
+    ViewBag.Title = "Wave";
+    Layout = "~/Views/Shared/_DanhMuc.cshtml";
+}
+@foreach (var item in Model.ListCategory)
+{
+    if(item.Id == Model.ma)
+    {
+        <h2 class="page-heading">
+            <span class="page-heading-title">@item.Name</span>
+        </h2>
+    }
+
+}
+<!-- ../page heading-->
+<!-- Product -->
+<div id="product">
+    <!-- box product -->
+    <div class="category-featured Vegetables">
+        <div class="product-featured clearfix">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-right">
+                        <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+                        <ul class="product-list">
+                            @foreach (var item in Model.ListProduct.Take(20))
+                            {
+                                <li class="col-sm-4 product-item" style="width: 280px;">
+
+                                    <div class="left-block">
+                                        <a href="@Url.Action("WaveCT","ChiTietSanPham",new {Id =item.Id+"a"+item.CategoryId},null )">
+                                            <img style="width:100% ; height:154px" class="img-responsive" alt="product"
+                                                 src="~/Content/img/@item.Avatar" />
+                                        </a>
+
+                                        <div class="quick-view">
+                                            <a title="Add to my wishlist" class="heart" href="#"></a>
+                                            <a title="Add to compare" class="compare" href="#"></a>
+                                            <a title="Quick view" href="images/product-detail/vegetables/asparagus_600x600.jpg" class="search fancybox-button"></a>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <a class="add-item-to-cart" title="Add to Carr" href="#" data-name="Asparagus - 1kg"
+                                               data-price="38500" data-image="vegetables/asparagus_300x300.jpg" data-product-code="AS109">Add to Cart</a>
+                                        </div>
+                                        <div class="price-percent-reduction2">
+                                            @item.FullDes % OFF
+                                        </div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">@item.Name</a></h5>
+
+                                        <div class="content_price">
+                                            <span class="price product-price">
+                                                <span style="color: orangered">Giá: @string.Format("{0:#,##0}", @item.PriceDiscount)  VNĐ</span> <br />
+                                                <span style="color: black">Màu:  @item.ShortDes</span>
+                                            </span>
+                                            <!--<br><span style="color: black">Price:</span>-->
+                                            <!--<span class="price old-price">55,000đ</span>-->
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./box product -->
+</div>
+<div class="sortPagiBar">
+    <div class="bottom-pagination">
+        <nav>
+            <ul class="pagination">
+                <li class="active"><a href="product-vegetables.html">1</a></li>
+                <li><a href="product-vegetables-2.html">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="show-product-item">
+        <select name="">
+            <option value="">Show 9</option>
+            <option value="">Show 18</option>
+            <option value="">Show 27</option>
+            <option value="">Show 36</option>
+        </select>
+    </div>
+    <div class="sort-product">
+        <select>
+            <option value="">Product Name</option>
+            <option value="">Price</option>
+        </select>
+
+        <div class="sort-product-icon">
+            <i class="fa fa-sort-alpha-asc"></i>
+        </div>
+    </div>
+</div>
+
+<div class="demo_changer" id="demo_changer">
+    <div class="demo-icon fa fa-shopping-cart">
+        <span class="notify notify-left" id="count-cart">2</span>
+    </div>
+    <div class="form_holder">
+        <div class="cart-block">
+            <div class="cart-block-content">
+                <div class="cart-block-list">
+                    <div class="shop_cart">
+                        <table class="shop_table">
+                            <tbody id="show-cart">
+                                <!--/////////////////////////////////-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="toal-cart">
+                    <span>Toàn bộ</span>
+                    <span class="toal-price pull-right" id="total_price">54,000đ</span>
+                </div>
+                <div class="cart-buttons">
+                    <a href="shoping-cart.html" class="btn-check-out">Thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

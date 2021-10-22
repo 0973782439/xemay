@@ -1,0 +1,68 @@
+﻿@model Đồ_án_3.Models.Category
+
+@{
+    ViewBag.Title = "DeleteCate";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+<h2 style="padding-left:5%;font-size:30px;color:red">Xóa danh mục sản phẩm</h2>
+
+<h3 style="padding-left:5%">Bạn có chắc chắn muốn xóa danh mục sản phẩm ?</h3>
+<hr />
+<div style="padding:10px 5%">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id):  @Html.DisplayFor(model => model.Id)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avatar): @Html.DisplayFor(model => model.Avatar)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug): @Html.DisplayFor(model => model.Slug)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowOnHomePage):@Html.DisplayFor(model => model.ShowOnHomePage)
+
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayOrder): @Html.DisplayFor(model => model.DisplayOrder)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateOnUtc):   @Html.DisplayFor(model => model.CreateOnUtc)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateOnUtc):@Html.DisplayFor(model => model.UpdateOnUtc)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted): @Html.DisplayFor(model => model.UpdateOnUtc)
+        </dt>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="padding-top:10px">
+            <input type="submit" value="Xóa" class="btn btn-default" />
+            <div style="float:left">
+                <p style="float:left;width:50px;padding:0 8px 10px 10px;background:red;text-align:center;height:12px">
+                    <a style="text-decoration:none;color:white" href="@Url.Action("HomeCategory","QuanLyDanhMuc")">Trở về</a>
+                </p>
+            </div>
+        </div>
+    }
+</div>

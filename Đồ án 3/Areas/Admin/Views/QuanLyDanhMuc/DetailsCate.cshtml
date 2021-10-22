@@ -1,0 +1,52 @@
+﻿@model Đồ_án_3.Models.Category
+
+@{
+    ViewBag.Title = "DetailsCate";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+<h2 style="padding-left:5%;font-size:30px;color:red">Chi tiết danh mục sản phẩm</h2>
+<hr />
+<div style="padding:10px 5%">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id): @Html.DisplayFor(model => model.Id)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name):  @Html.DisplayFor(model => model.Name)
+        </dt>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avatar):  @Html.DisplayFor(model => model.Avatar)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug); @Html.DisplayFor(model => model.Slug)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowOnHomePage):  @Html.DisplayFor(model => model.ShowOnHomePage)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayOrder): @Html.DisplayFor(model => model.DisplayOrder)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateOnUtc): @Html.DisplayFor(model => model.CreateOnUtc)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateOnUtc): @Html.DisplayFor(model => model.UpdateOnUtc)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted): @Html.DisplayFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+    </dl>
+</div>
+<p style="padding:10px 5%">
+    @Html.ActionLink("Trở về", "HomeCategory") |
+    @Html.ActionLink("Sửa", "EditCate", new { id = Model.Id })
+</p>

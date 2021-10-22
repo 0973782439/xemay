@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="~/Areas/Admin/css/sanpham.css">
+</head>
+<body>
+    <section class="main" style="width:100%">
+        <div class="header" style="position:fixed;top:0;left:0;width:100%">
+            <a href="../DA2/user.html"><i class="icon-logout fas fa-sign-out-alt"></i></a>
+            <h1>QUẢN LÍ HỆ THỐNG CỬA HÀNG XE MÁY ANH TÚ</h1>
+        </div>
+        <br>
+        <div class="menu-nav" style="position:fixed;top:15%;left:0">
+            <ul class="nav">
+                <li>
+                    <a href=""><i class="fas fa-home"></i>    Trang chủ  </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("HomeProduct","QuanLySanPham")">Quản lý sản phẩm</a>
+
+                <li>
+                    <a href="@Url.Action("HomeCategory","QuanLyDanhMuc")"><i class="fas fa-truck-loading"></i>  Quản lý danh mục   </a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-cart-arrow-down"></i> Quản lý đơn hàng   </a>
+                </li>
+
+                <li>
+                    <a href=""><i class="fas fa-users"></i>  Quản lý Khách hàng   </a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-truck-moving"></i> Quản lý Nhập kho   </a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fas fa-funnel-dollar"></i> Doanh số   </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-dollar-sign"></i>  Lợi nhuận   </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-user-cog"></i>  Thiết lập   </a>
+                </li>
+                <li>
+                    <a href="@Request.Url.Scheme://@Request.Url.Authority/Home/logout">Đăng xuất  </a>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <div class="menu-item" style="padding-top:70px">
+            @RenderBody()
+        </div>
+    </section>
+</body>
+</html>

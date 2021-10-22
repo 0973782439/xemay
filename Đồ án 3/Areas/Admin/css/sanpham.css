@@ -1,0 +1,74 @@
+*{
+    margin: 0 auto;
+}
+.main{
+    width: 80%;
+    margin: 0 auto;
+    height: 600x;
+    
+}
+.main .menu-nav{
+    width: 15%;
+    float: left;
+}
+.main .menu-item{
+    width: 85%;
+    float: right;        
+}
+.nav {
+    /* background:slategrey; */
+    padding: 0;
+}
+.nav>li{
+    margin: 3px;
+    padding: 10px 0;
+    /* padding: 6px 0 6px 10px; */
+    line-height: 30px;
+    list-style: none;
+    background-color: steelblue;
+}
+.nav li:hover{
+    background:rgba(255, 0, 0, 0.404);
+}
+.nav a{
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 20px;
+}
+
+.main h1{
+   background: rgba(0, 0, 0, 0.616);
+   width: 100%;
+   height: 100px;
+   color: rgba(255, 255, 255, 0.767);
+   text-align: center;
+   line-height: 100px;
+}
+.icon{
+   float: right;
+   padding-right: 10px;
+   line-height: 30px;
+}
+.icon-logout{
+   float: left;
+   color: white;
+   font-size: 30px;
+   line-height: 100px;
+   padding-left: 20px;
+}
+/* ========== */
+.item-one h2{
+  text-align: center;
+  font-size: 40px;
+  color: blue;
+}
+.item-true .one{
+   padding: 2px 50px;
+   background: darkgray;
+}
+.item-true .true{
+   padding: 5px 50px;
+}
+button{
+   border: none;
+}

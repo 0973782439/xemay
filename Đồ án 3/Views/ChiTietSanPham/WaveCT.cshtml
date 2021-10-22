@@ -1,0 +1,227 @@
+﻿@model Đồ_án_3.Models.Category_Product 
+@{
+    ViewBag.Title = "WaveCT";
+    Layout = "~/Views/Shared/_DanhMuc.cshtml";
+}
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+ 
+
+<div id="product" class="green">
+    @foreach (var item in Model.ListProduct)
+    {
+        if (@item.Id == Model.ma)
+        {
+            <div class="primary-box row">
+
+                <div class="pb-left-column col-xs-12 col-sm-6">
+                    <!-- product-imge-->
+                    <div class="product-image">
+                        <div class="product-full">
+                            <img style="width:100% ; height:100%" id="product-zoom" src="~/Content/img/@item.Avatar"
+                                 data-zoom-image="~/Content/img/@item.Avatar" />
+                        </div>
+                        <div class="product-img-thumb" id="gallery_01">
+                            <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false"
+                                data-margin="20" data-loop="true">
+
+                                <li>
+                                    <a href="#"
+                                       data-image="~/Content/img/hondaxanh2.png"
+                                       data-zoom-image="~/Content/img/@item.Avatar">
+                                        <img id="product-zoom"
+                                             src="~/Content/img/@item.Avatar" />
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- product-imge-->
+                </div>
+                <div class="pb-right-column col-xs-12 col-sm-6">
+                    <h1 class="product-name">@item.Name</h1>
+
+                    <div class="product-price-group">
+                        <span class="price product-price">
+                            <span style="color: black">Giá tốt nhất: </span>@string.Format("{0:#,##0}", item.PriceDiscount)
+                        </span>
+                        <span style="font-weight: bold">Giá KM: </span><span class="old-price">@string.Format("{0:#,##0}", item.Price)</span>
+                        <span class="discount">@item.FullDes%</span>
+                    </div>
+                    <div class="info-orther">
+                        <p>Mã sản phẩm: @item.CategoryId</p>
+                        <p>Màu: <span class="in-stock">@item.ShortDes</span></p>
+
+                        <p>Tình trạng: <span class="in-stock">Còn hàng </span></p>
+
+                    </div>
+                    <div class="product-desc">
+
+                    </div>
+                    <div class="form-option">
+
+                        <div class="attributes">
+                            <div class="attribute-label">Quality:</div>
+                            <div class="attribute-list product-qty">
+                                <div class="qty">
+                                    <input id="option-product-qty" type="text" value="1">
+                                </div>
+                                <div class="btn-plus">
+                                    <a href="#" class="btn-plus-up">
+                                        <i class="fa fa-caret-up"></i>
+                                    </a>
+                                    <a href="#" class="btn-plus-down">
+                                        <i class="fa fa-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-action">
+                        <div class="button-group">
+                            <a class="btn-add-cart add-item-to-cart" style="color: white" title="Add to Carr"
+                               href="#" data-name="wave xanh"
+                               data-price="18000500" data-image="vegetables/asparagus_300x300.jpg"
+                               data-product-code="HD109">Add to Cart</a>
+                        </div>
+                        <div class="button-group">
+                            <a class="wishlist" href="#">
+                                <i class="fa fa-heart-o"></i>
+                                <br>Heart
+                            </a>
+                            <a class="compare" href="#">
+                                <i class="fa fa-signal"></i>
+                                <br>
+                                Compare
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- tab product -->
+            <div class="product-tab">
+                <ul class="nav-tab" style="margin-bottom: 0px;">
+                    <li class="active">
+                        <a aria-expanded="false" data-toggle="tab" href="#product-detail">Chi tiết</a>
+                    </li>
+                    <li>
+                        <a aria-expanded="true" data-toggle="tab" href="#comment">Comment</a>
+                    </li>
+
+                </ul>
+                <div class="tab-container">
+                    <div id="product-detail" class="tab-panel active">
+                        <p>
+                            @item.Name  <br />
+                            Màu sắc: @item.ShortDes  <br />
+                            Giá bán: @string.Format("{0:#,##0}", item.PriceDiscount)  <br />
+                            Khuyến mại: @item.FullDes %
+
+                        </p>
+                    </div>
+                    <div id="comment" class="tab-panel">
+                        <div class="fb-comments" data-href="https://www.facebook.com/hungdng.92"
+                             data-width="100%" data-numposts="5"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    <!-- ./tab product -->
+    <!-- box product -->
+    <div class="page-product-box">
+        <h2 class="page-heading">
+            <span class="page-heading-title"> SẢN PHẨM TƯƠNG TỰ</span>
+        </h2>
+        <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true"
+            data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true"
+            data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+           @foreach (var item in Model.ListProduct)
+            {
+                    if (Model.ma != item.Id && item.CategoryId == Model.cateId)
+                    {
+            <li class="col-sm-4 product-item" style="width: 280px;">
+
+                <div class="left-block">
+                    <a href="@Url.Action("WaveCT","ChiTietSanPham",new {@Id =item.Id},null )">
+                        <img style="width:100% ; height:154px" class="img-responsive" alt="product"
+                             src="~/Content/img/@item.Avatar" />
+                    </a>
+
+                    <div class="quick-view">
+                        <a title="Add to my wishlist" class="heart" href="#"></a>
+                        <a title="Add to compare" class="compare" href="#"></a>
+                        <a title="Quick view" href="images/product-detail/vegetables/asparagus_600x600.jpg" class="search fancybox-button"></a>
+                    </div>
+                    <div class="add-to-cart">
+                        <a class="add-item-to-cart" title="Add to Carr" href="#" data-name="Asparagus - 1kg"
+                           data-price="38500" data-image="vegetables/asparagus_300x300.jpg" data-product-code="AS109">Add to Cart</a>
+                    </div>
+                    <div class="price-percent-reduction2">
+                        @item.FullDes % OFF
+                    </div>
+                </div>
+                <div class="right-block">
+                    <h5 class="product-name"><a href="#">@item.Name</a></h5>
+
+                    <div class="content_price">
+                        <span class="price product-price">
+                            <span style="color: orangered">Giá: @string.Format("{0:#,##0}", @item.PriceDiscount)  VNĐ</span> <br />
+                            <span style="color: black">Màu:  @item.ShortDes</span>
+                        </span>
+                        <!--<br><span style="color: black">Price:</span>-->
+                        <!--<span class="price old-price">55,000đ</span>-->
+                    </div>
+                </div>
+            </li>
+                    }
+            }
+        </ul>
+    </div>
+    <!-- ./box product -->
+</div>
+
+@* end đăng nhập *@
+    <div class="demo_changer" id="demo_changer">
+        <div class="demo-icon fa fa-shopping-cart">
+            <span class="notify notify-left" id="count-cart">2</span>
+        </div>
+        <div class="form_holder">
+            <div class="cart-block">
+                <div class="cart-block-content">
+                    <div class="cart-block-list">
+                        <div class="shop_cart">
+                            <table class="shop_table">
+                                <tbody id="show-cart">
+                                    <!--/////////////////////////////////-->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="toal-cart">
+                        <span>Toàn bộ</span>
+                        <span class="toal-price pull-right" id="total_price">54,000đ</span>
+                    </div>
+                    <div class="cart-buttons">
+                        <a href="shoping-cart.html" class="btn-check-out">Thanh toán</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@* end thanh toán *@
+
+
